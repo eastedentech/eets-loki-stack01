@@ -57,18 +57,18 @@ services:
       - loki
 
   # for testing purposes only, disable in production
-  log-generator:
-    image: mingrammer/flog
-    command:
-      - --loop
-      - --format=json
-      - --number=10 # number of log lines to generate per second
-      - --delay=100ms # delay between log lines
-      - --output=/var/log/generated-logs.txt
-      - --overwrite
-      - --type=log
-    volumes:
-      - ./loki/:/var/log/
+  # log-generator:
+  #   image: mingrammer/flog
+  #   command:
+  #     - --loop
+  #     - --format=json
+  #     - --number=10 # number of log lines to generate per second
+  #     - --delay=100ms # delay between log lines
+  #     - --output=/var/log/generated-logs.txt
+  #     - --overwrite
+  #     - --type=log
+  #   volumes:
+  #     - ./loki/:/var/log/
 
   promtail:
     image: grafana/promtail:2.8.3
@@ -92,7 +92,8 @@ services:
         minio server /data
     environment:
       - MINIO_ROOT_USER=loki
-      - MINIO_ROOT_PASSWORD=supersecret
+      # - MINIO_ROOT_PASSWORD=supersecret
+      - MINIO_ROOT_PASSWORD #sourced from the .env file
       - MINIO_PROMETHEUS_AUTH_TYPE=public
       - MINIO_UPDATE=off
     ports:

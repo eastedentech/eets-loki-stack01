@@ -99,6 +99,7 @@ services:
       - MINIO_UPDATE=off
     ports:
       - "9000:9000"
+      - "41959:41959"
     volumes:
       - ./.data/minio:/data
     networks:

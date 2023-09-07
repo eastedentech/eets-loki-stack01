@@ -97,9 +97,10 @@ services:
       - MINIO_ROOT_PASSWORD #sourced from the .env file
       - MINIO_PROMETHEUS_AUTH_TYPE=public
       - MINIO_UPDATE=off
+    command: server --console-address ":9001"
     ports:
       - "9000:9000"
-      - "41959:41959"
+      - "9001:9001"
     volumes:
       - ./.data/minio:/data
     networks:

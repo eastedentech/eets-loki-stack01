@@ -42,7 +42,8 @@ services:
       - loki
 
   prometheus:
-    image: prom/prometheus:v2.27.0
+    # image: prom/prometheus:v2.27.0
+    image: prom/prometheus:latest
     ports:
       - 9090:9090
     volumes:
@@ -73,7 +74,8 @@ services:
   #     - ./loki/:/var/log/
 
   promtail:
-    image: grafana/promtail:2.8.3
+    # image: grafana/promtail:2.8.3
+    image: grafana/promtail:latest
     volumes:
       - ./loki/:/var/log/
       - ./config:/etc/promtail/
@@ -109,7 +111,8 @@ services:
       - loki
 
   loki-gateway:
-    image: nginx:1.19
+    # image: nginx:1.19
+    image: nginx:latest
     volumes:
       - ./config/nginx.conf:/etc/nginx/nginx.conf
     ports:
@@ -187,7 +190,8 @@ services:
 
   # alertmanager to enable receiving alerts
   alertmanager:
-    image: prom/alertmanager:v0.23.0
+    # image: prom/alertmanager:v0.23.0
+    image: prom/alertmanager:latest
     restart: unless-stopped
     ports:
       - "9093:9093"

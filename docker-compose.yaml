@@ -70,17 +70,17 @@ services:
   #   volumes:
   #     - ./loki/:/var/log/
 
-  promtail:
-    image: grafana/promtail:2.8.3
-    volumes:
-      - ./loki/:/var/log/
-      - ./config:/etc/promtail/
-    ports:
-      - 9080
-      - 1514
-    command: -config.file=/etc/promtail/promtail.yaml
-    networks:
-      - loki
+  # promtail:
+  #   image: grafana/promtail:2.8.3
+  #   volumes:
+  #     - ./loki/:/var/log/
+  #     - ./config:/etc/promtail/
+  #   ports:
+  #     - 9080
+  #     - 1514
+  #   command: -config.file=/etc/promtail/promtail.yaml
+  #   networks:
+  #     - loki
 
   minio:
     image: minio/minio

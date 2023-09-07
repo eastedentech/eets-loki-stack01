@@ -93,12 +93,12 @@ services:
         minio server /data
     ports:
       - "9000:9000"
-      # - "9001:9001"
+      - "9001:9001"
     environment:
       - MINIO_ROOT_USER=loki
       - MINIO_ROOT_PASSWORD=TLewRKaDkSwst4Pq8Me9pQtqW
       # - MINIO_ROOT_PASSWORD #sourced from the .env file
-      # - MINIO_CONSOLE_ADDRESS=:9001
+      - MINIO_CONSOLE_ADDRESS=:9001
       - MINIO_PROMETHEUS_AUTH_TYPE=public
       - MINIO_UPDATE=off
     volumes:

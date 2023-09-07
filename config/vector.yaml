@@ -20,4 +20,4 @@ sinks:
     endpoint: http://127.0.0.1:3100
 
     #Encoding
-    encoding.codec = "json" # optional, default
+    encoding.codec: json # optional, default

@@ -205,7 +205,7 @@ services:
     
   vector:
     image: timberio/vector:latest-alpine
-    command: --config /etc/vector/vector.toml
+    command: --config /etc/vector/vector.yaml
     volumes:
       - ./config:/etc/vector
       - vector:/var/lib/vector

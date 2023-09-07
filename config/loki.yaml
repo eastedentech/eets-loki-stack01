@@ -15,7 +15,7 @@ common:
       insecure: true
       bucketnames: loki-data
       access_key_id: loki
-      secret_access_key: supersecret
+      secret_access_key: TLewRKaDkSwst4Pq8Me9pQtqW
       s3forcepathstyle: true
   compactor_address: http://loki-write:3100
   replication_factor: 3

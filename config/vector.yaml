@@ -1,0 +1,20 @@
+data_dir: /var/lib/vector
+
+sources:
+  syslog_2514_tcp:
+    type: syslog
+    address: 0.0.0.0:2514
+    mode: tcp
+    path: /path/to/socket
+  syslog_2514_udp:
+    type: syslog
+    address: 0.0.0.0:2514
+    mode: udp
+    path: /path/to/socket
+
+sinks:
+  my_sink_id:
+    type: loki
+    inputs:
+      - vector-syslog
+    endpoint: http://127.0.0.1:3100

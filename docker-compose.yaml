@@ -8,6 +8,7 @@ volumes:
   grafana:
   alertmanager-data:
   loki:
+  vector:
 
 services:
   # Since the Loki containers are running as user 10001 and the mounted data volume is owned by root,
@@ -201,3 +202,16 @@ services:
     command: --config.file=/config/alertmanager.yml --log.level=debug
     networks:
       - loki
+    
+  vector:
+    image: timberio/vector:latest-alpine
+    command: --config /etc/vector/vector.toml
+    volumes:
+      - ./config:/etc/vector
+      - vector:/var/lib/vector
+    ports:
+      - 8686:8686
+      - 2514:2514
+    networks:
+      - loki
+    

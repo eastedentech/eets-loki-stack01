@@ -205,6 +205,8 @@ services:
     
   vector:
     image: timberio/vector:latest-alpine
+    depends_on:
+      - loki-gateway
     command: --config /etc/vector/vector.yaml
     volumes:
       - ./config:/etc/vector

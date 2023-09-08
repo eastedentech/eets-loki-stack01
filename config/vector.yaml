@@ -13,10 +13,12 @@ sources:
     path: /path/to/socket
 
 sinks:
-  my_sink_id:
+  loki_sink1:
     type: loki
     inputs:
       - vector-syslog
     endpoint: http://127.0.0.1:3100
     encoding:
       codec: json
+    labels:
+      forwarder: vector

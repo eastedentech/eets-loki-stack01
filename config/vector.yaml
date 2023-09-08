@@ -18,6 +18,5 @@ sinks:
     inputs:
       - vector-syslog
     endpoint: http://127.0.0.1:3100
-
-    #Encoding
-    encoding: json # optional, default
+    encoding:
+      codec: json

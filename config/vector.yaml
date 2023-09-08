@@ -16,7 +16,8 @@ sinks:
   loki_sink1:
     type: loki
     inputs:
-      - vector-syslog
+      - syslog_2514_tcp
+      - syslog_2514_udp
     endpoint: http://127.0.0.1:3100
     encoding:
       codec: json

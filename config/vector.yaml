@@ -18,7 +18,7 @@ sinks:
     inputs:
       - syslog_2514_tcp
       - syslog_2514_udp
-    endpoint: http://127.0.0.1:3100
+    endpoint: http://10.3.201.225:3100
     encoding:
       codec: json
     labels:

@@ -15,8 +15,10 @@ sources:
 sinks:
   loki_sink1:
     type: loki
+    healthcheck:
+      enabled: false
     inputs:
-      # - syslog_2514_tcp
+      - syslog_2514_tcp
       - syslog_2514_udp
     endpoint: http://10.3.201.225:3100
     encoding:
